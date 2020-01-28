@@ -14,7 +14,7 @@ class PatternExercise : ApplicationAdapter() {
         WIDTH = Gdx.graphics.width
         HEIGHT = Gdx.graphics.height
         batch = SpriteBatch()
-        GameStateManager.push(MenuState(GameStateManager))
+        GameStateManager.push(MenuState)
     }
 
     override fun render() {

@@ -7,14 +7,14 @@ import com.maattss.pattern.exercise.PatternExercise
 import com.maattss.pattern.exercise.states.PongState
 
 
-object Ball {
+class Ball {
     val texture: Texture = Texture("pong/ball.png")
     val position: Vector2 = Vector2((PatternExercise.WIDTH / 2).toFloat(),
             (PatternExercise.HEIGHT / 2).toFloat())
     private var up: Boolean = true
     private var right: Boolean = true
     private val speed: Int = 400
-    val bounds: Rectangle = Rectangle(position.x, position.y, 20f, 20f)
+    private val bounds: Rectangle = Rectangle(position.x, position.y, 20f, 20f)
 
     fun update(dt: Float, state: PongState, pl: LeftPaddle, pr: RightPaddle) {
         bounds.setPosition(position.x, position.y)

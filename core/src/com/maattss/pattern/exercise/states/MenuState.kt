@@ -7,7 +7,7 @@ import com.maattss.pattern.exercise.PatternExercise
 import com.maattss.pattern.exercise.sprites.MenuButton
 
 
-class MenuState(gsm: GameStateManager) : State(gsm) {
+object MenuState : State(GameStateManager) {
     private val play: MenuButton = MenuButton(PatternExercise.WIDTH/2 - 128,
             PatternExercise.HEIGHT / 2 - 128, "menu/play.png")
 
@@ -15,7 +15,7 @@ class MenuState(gsm: GameStateManager) : State(gsm) {
         if (Gdx.input.justTouched()) { // Decide which exercise user has selected
             val touch = Rectangle(Gdx.input.x.toFloat(), Gdx.input.y.toFloat(), 1f, 1f)
             if (touch.overlaps(play.bounds)) {
-                gsm.set(PongState(gsm))
+                gsm.set(PongState)
             }
         }
     }

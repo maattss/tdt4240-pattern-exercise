@@ -12,9 +12,10 @@ import com.maattss.pattern.exercise.sprites.LeftPaddle
 import com.maattss.pattern.exercise.sprites.RightPaddle
 
 
-class PongState(gsm: GameStateManager) : State(gsm) {
+object PongState : State(GameStateManager) {
     private val paddleLeft: LeftPaddle = LeftPaddle(100, 30)
     private val paddleRight: RightPaddle = RightPaddle(1700, 30)
+    private val ball: Ball = Ball()
     private val backBtn: BackButton = BackButton()
     private var scoreLeft: Int = 0
     private var scoreRight: Int = 0
@@ -26,7 +27,7 @@ class PongState(gsm: GameStateManager) : State(gsm) {
             val touch = Rectangle(Gdx.input.x.toFloat(),
                     (PatternExercise.HEIGHT - Gdx.input.y).toFloat(), 1f, 1f)
             if (touch.overlaps(backBtn.bounds)) { // User pushed back button
-                gsm.set(MenuState(gsm))
+                gsm.set(MenuState)
             }
         }
     }
@@ -35,7 +36,7 @@ class PongState(gsm: GameStateManager) : State(gsm) {
         handleInput()
         paddleLeft.update()
         paddleRight.update()
-        Ball.update(dt, this, paddleLeft, paddleRight)
+        ball.update(dt, this, paddleLeft, paddleRight)
     }
 
     override fun render(sb: SpriteBatch) {
@@ -49,7 +50,7 @@ class PongState(gsm: GameStateManager) : State(gsm) {
         } else { // Update paddle position
             sb.draw(paddleRight.texture, paddleRight.position.x, paddleRight.position.y)
             sb.draw(paddleLeft.texture, paddleLeft.position.x, paddleLeft.position.y)
-            sb.draw(Ball.texture, Ball.position.x, Ball.position.y, 20f, 20f)
+            sb.draw(ball.texture, ball.position.x, ball.position.y, 20f, 20f)
             // Draw scoreboard
             font.data.setScale(0.9f)
             font.color = Color.WHITE
