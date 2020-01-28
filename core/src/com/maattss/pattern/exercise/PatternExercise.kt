@@ -8,21 +8,19 @@ import com.maattss.pattern.exercise.states.GameStateManager
 import com.maattss.pattern.exercise.states.MenuState
 
 class PatternExercise : ApplicationAdapter() {
-    private lateinit var gsm: GameStateManager
     private lateinit var batch: SpriteBatch
 
     override fun create() {
         WIDTH = Gdx.graphics.width
         HEIGHT = Gdx.graphics.height
         batch = SpriteBatch()
-        gsm = GameStateManager()
-        gsm.push(MenuState(gsm))
+        GameStateManager.push(MenuState(GameStateManager))
     }
 
     override fun render() {
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT)
-        gsm.update(Gdx.graphics.deltaTime)
-        gsm.render(batch)
+        GameStateManager.update(Gdx.graphics.deltaTime)
+        GameStateManager.render(batch)
     }
 
     companion object {

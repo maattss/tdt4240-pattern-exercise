@@ -3,7 +3,7 @@ package com.maattss.pattern.exercise.states
 import com.badlogic.gdx.graphics.g2d.SpriteBatch
 import java.util.*
 
-class GameStateManager {
+object GameStateManager {
     private val states: Stack<State> = Stack()
 
     fun push(state: State) {
