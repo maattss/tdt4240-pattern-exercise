@@ -1,20 +1,12 @@
 package com.maattss.pattern.exercise.sprites
 
 import com.badlogic.gdx.Gdx
-import com.badlogic.gdx.graphics.Texture
-import com.badlogic.gdx.math.Rectangle
-import com.badlogic.gdx.math.Vector2
 import com.maattss.pattern.exercise.PatternExercise
 
-
-class LeftPaddle(x: Int, y: Int) {
-    val position: Vector2 = Vector2(x.toFloat(), y.toFloat())
-    val texture: Texture = Texture("pong/paddle.png")
+class LeftPaddle(x: Int, y: Int) : Paddle(x, y) {
     private val speed: Int = 20
-    val bounds: Rectangle = Rectangle(position.x, position.y,
-            texture.width.toFloat(), texture.height.toFloat())
 
-    fun update() {
+    override fun update() {
         bounds.setPosition(position.x, position.y)
         if (position.y < 0) {
             position.y = 0f
