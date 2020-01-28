@@ -1,10 +1,11 @@
-package com.maattss.intro.exercise
+package com.maattss.pattern.exercise
 
 import com.badlogic.gdx.ApplicationAdapter
 import com.badlogic.gdx.Gdx
 import com.badlogic.gdx.graphics.GL20
 import com.badlogic.gdx.graphics.g2d.SpriteBatch
 import com.maattss.pattern.exercise.states.GameStateManager
+import com.maattss.pattern.exercise.states.MenuState
 
 class PatternExercise : ApplicationAdapter() {
     private lateinit var gsm: GameStateManager
@@ -15,7 +16,7 @@ class PatternExercise : ApplicationAdapter() {
         HEIGHT = Gdx.graphics.height
         batch = SpriteBatch()
         gsm = GameStateManager()
-        //gsm.push(MenuState(gsm))
+        gsm.push(MenuState(gsm))
     }
 
     override fun render() {
