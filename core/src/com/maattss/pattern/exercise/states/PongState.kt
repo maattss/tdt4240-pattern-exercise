@@ -16,7 +16,7 @@ class PongState(gsm: GameStateManager) : State(gsm) {
     private val paddleLeft: LeftPaddle = LeftPaddle(100, 30)
     private val paddleRight: RightPaddle = RightPaddle(1700, 30)
     private val ball: Ball = Ball()
-    private val backBtn: BackButton = BackButton(true)
+    private val backBtn: BackButton = BackButton()
     private var scoreLeft: Int = 0
     private var scoreRight: Int = 0
     private var winnerStr: String = ""
