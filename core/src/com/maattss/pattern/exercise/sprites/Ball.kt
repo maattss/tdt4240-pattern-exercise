@@ -7,7 +7,7 @@ import com.maattss.pattern.exercise.PatternExercise
 import com.maattss.pattern.exercise.states.PongState
 
 
-class Ball {
+object Ball {
     val texture: Texture = Texture("pong/ball.png")
     val position: Vector2 = Vector2((PatternExercise.WIDTH / 2).toFloat(),
             (PatternExercise.HEIGHT / 2).toFloat())
