@@ -4,8 +4,7 @@ import com.badlogic.gdx.graphics.Texture
 import com.badlogic.gdx.math.Rectangle
 import com.badlogic.gdx.math.Vector2
 
-
-class MenuButton(x: Int, y: Int, texturePath: String?) {
+class Button(x: Int, y: Int, texturePath: String) {
     val texture: Texture = Texture(texturePath)
     private val position: Vector2 = Vector2(x.toFloat(), y.toFloat())
     val bounds: Rectangle = Rectangle(position.x, position.y,
@@ -20,4 +19,5 @@ class MenuButton(x: Int, y: Int, texturePath: String?) {
     fun dispose() {
         texture.dispose()
     }
+
 }
