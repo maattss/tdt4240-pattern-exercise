@@ -2,20 +2,25 @@ package com.maattss.pattern.exercise.states
 
 import com.badlogic.gdx.Gdx
 import com.badlogic.gdx.graphics.g2d.SpriteBatch
-import com.badlogic.gdx.math.Rectangle
 import com.maattss.pattern.exercise.PatternExercise
 import com.maattss.pattern.exercise.sprites.Button
 
 
 object MenuState : State(GameStateManager) {
+    // Center aligned play button
     private val playBtn: Button = Button(PatternExercise.WIDTH/2 - 128,
-            PatternExercise.HEIGHT / 2 - 128, "menu/play.png")
+            PatternExercise.HEIGHT / 2 + 128, "menu/play.png")
 
     override fun handleInput() {
-        if (Gdx.input.justTouched()) { // Decide which exercise user has selected
-            val touch = Rectangle(Gdx.input.x.toFloat(), Gdx.input.y.toFloat(), 1f, 1f)
-            if (touch.overlaps(playBtn.bounds)) {
-                GameStateManager.set(PongState)
+        if (Gdx.input.justTouched()) {
+            java.util.logging.Logger.getLogger(PongState::class.java.name).warning("Touched, x:"
+                    + Gdx.input.x.toFloat() + ", y:" + (Gdx.input.y.toFloat()))
+            java.util.logging.Logger.getLogger(PongState::class.java.name).warning("Bounds obj, "
+                    + playBtn.bounds)
+            java.util.logging.Logger.getLogger(PongState::class.java.name).warning("Button x: "
+                    + playBtn.x + ", y: " + playBtn.y)
+            if (playBtn.bounds.contains(Gdx.input.x.toFloat(), Gdx.input.y.toFloat())) {
+                GameStateManager.set(PongState())
             }
         }
     }
@@ -31,7 +36,5 @@ object MenuState : State(GameStateManager) {
         sb.end()
     }
 
-    override fun dispose() {
-        playBtn.dispose()
-    }
+    override fun dispose() {}
 }

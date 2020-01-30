@@ -9,6 +9,6 @@ abstract class Paddle(x: Int, y: Int) {
     val texture: Texture = Texture("pong/paddle.png")
     val bounds: Rectangle = Rectangle(position.x, position.y,
             texture.width.toFloat(), texture.height.toFloat())
-
+    val speed: Int = 20
     abstract fun update()
 }

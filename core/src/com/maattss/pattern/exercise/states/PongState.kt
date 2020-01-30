@@ -12,22 +12,29 @@ import com.maattss.pattern.exercise.sprites.Button
 import com.maattss.pattern.exercise.sprites.LeftPaddle
 import com.maattss.pattern.exercise.sprites.RightPaddle
 
-
-object PongState : State(GameStateManager) {
-    private val paddleLeft: LeftPaddle = LeftPaddle(50, 30)
-    private val paddleRight: RightPaddle = RightPaddle(PatternExercise.WIDTH - 50, 30)
+class PongState : State(GameStateManager) {
+    private val margin: Int = 20
+    private val paddleLeft: LeftPaddle = LeftPaddle(margin, margin)
+    private val paddleRight: RightPaddle = RightPaddle(PatternExercise.WIDTH - paddleLeft.texture.width - margin, margin)
     private val ball: Ball = Ball()
-    private val backBtn: Button = Button(25, PatternExercise.HEIGHT - 150, "buttons/back.png")
+    private val backBtn: Button = Button(margin, PatternExercise.HEIGHT - 75, "buttons/back.png")
     private var scoreLeft: Int = 0
     private var scoreRight: Int = 0
     private var winnerStr: String = ""
     private val font: BitmapFont = BitmapFont(Gdx.files.internal("fonts/krungthep.fnt"))
-    private const val fontScale: Float = 0.3f
+    private val fontScale: Float = 0.3f
 
-    public override fun handleInput() {
+    override fun handleInput() {
         if (Gdx.input.justTouched()) {
-            val touch = Rectangle(Gdx.input.x.toFloat(), Gdx.input.y.toFloat(), 1f, 1f)
-            if (touch.overlaps(backBtn.bounds)) { // User pushed back button
+            java.util.logging.Logger.getLogger(PongState::class.java.name).warning("Touched, x:"
+                    + Gdx.input.x.toFloat() + ", y:" + (PatternExercise.HEIGHT - Gdx.input.y.toFloat()))
+            java.util.logging.Logger.getLogger(PongState::class.java.name).warning("Bounds, "
+                    + backBtn.bounds)
+            java.util.logging.Logger.getLogger(PongState::class.java.name).warning("Button x: "
+                    + backBtn.x + ", y: " + backBtn.y)
+            val touch = Rectangle(Gdx.input.x.toFloat(), PatternExercise.HEIGHT - Gdx.input.y.toFloat(), 1f, 1f)
+
+            if (touch.overlaps(backBtn.bounds)) {
                 GameStateManager.set(MenuState)
             }
         }
@@ -82,5 +89,7 @@ object PongState : State(GameStateManager) {
         }
     }
 
-    override fun dispose() {}
+    override fun dispose() {
+        backBtn.dispose()
+    }
 }

@@ -13,7 +13,7 @@ class Ball {
             (PatternExercise.HEIGHT / 2).toFloat())
     private var up: Boolean = true
     private var right: Boolean = true
-    private val speed: Int = 400
+    private val speed: Int = 100
     private val bounds: Rectangle = Rectangle(position.x, position.y, 20f, 20f)
 
     fun update(dt: Float, state: PongState, pl: LeftPaddle, pr: RightPaddle) {
@@ -25,13 +25,13 @@ class Ball {
         moveX(speed * dt, state)
     }
 
-    fun moveX(speed: Float, state: PongState) {
+    private fun moveX(speed: Float, state: PongState) {
         if (right) {
             position.x += speed
         } else {
             position.x -= speed
         }
-        if (position.x > PatternExercise.WIDTH) {
+        if (position.x > PatternExercise.WIDTH - texture.width/2) {
             position.x = PatternExercise.WIDTH / 2.toFloat()
             position.y = PatternExercise.HEIGHT / 2.toFloat()
             right = false
@@ -47,13 +47,13 @@ class Ball {
         }
     }
 
-    fun moveY(speed: Float) {
+    private fun moveY(speed: Float) {
         if (up) {
             position.y += speed
         } else {
             position.y -= speed
         }
-        if (up && position.y > PatternExercise.HEIGHT) up = false
+        if (up && position.y > PatternExercise.HEIGHT - texture.height/2) up = false
         if (!up && position.y < 0) up = true
     }
 }
