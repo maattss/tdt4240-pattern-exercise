@@ -7,6 +7,7 @@ Explanation and dicussion around the steps in the exercise is listed below.
 The Pong game (task 4) from the first exercise is chosen to implement patterns. 
 
 ## Step 2 - Implementation of the Singleton pattern
+TODO: Rewrite, pngstate is not implemented as singleton because of multiple states for multiple games
 The game introduces multiple game states, i.e. 'MenuState' and 'PongState'. Since a game will never include more than one instance of these, the Singleton pattern is used. In Kotlin the Singleton pattern can easily be implemented by using an [object declaration](https://kotlinlang.org/docs/reference/object-declarations.html#object-declarations). This will ensure that the rules for the Singleton pattern si adhered to. Additionally the 'GameStateManager' is declared as Singleton similarly to the game states.
 
 ## Step 3 - Implementing additional patterns
