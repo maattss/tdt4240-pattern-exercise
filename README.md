@@ -7,6 +7,7 @@ Explanation and dicussion around the steps in the exercise is listed below.
 The Pong game (task 4) from the first exercise is chosen to implement patterns. 
 
 ## Step 2 - Implementation of the Singleton pattern
+TODO: Rewrite, pngstate is not implemented as singleton because of multiple states for multiple games
 The game introduces multiple game states, i.e. 'MenuState' and 'PongState'. Since a game will never include more than one instance of these, the Singleton pattern is used. In Kotlin the Singleton pattern can easily be implemented by using an [object declaration](https://kotlinlang.org/docs/reference/object-declarations.html#object-declarations). This will ensure that the rules for the Singleton pattern si adhered to. Additionally the 'GameStateManager' is declared as Singleton similarly to the game states.
 
 ## Step 3 - Implementing additional patterns
@@ -14,6 +15,7 @@ My code from the introduction exercise used many of the same principles and tech
 - **Template pattern**:
   - State: Both 'MenuState' and 'PongState' are extensions of the state class overriding the abstract methods defined.
   - Buttons: Different buttons have a lot of shared functionality. e.g possibility to press and a texture. A base class 'Button' now includes code that previously was located in all the button classes.
+  - Sprite. Button and Paddle extension of Sprite
   - Paddles: Similarly to buttons, the paddles include a lot of similiar code. This is now gathered in the abstract class 'Paddle' which is overriden by the concrete implementation of 'LeftPaddle' and 'RightPaddle'.
 - **State pattern**:
   - Game states: In order to keep track of the game the state pattern is used to keep track of where the user are in the game. The 'GameStateManager' holds information about which states are active in the game, i.e. 'the user is in the menu' 
