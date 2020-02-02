@@ -9,16 +9,13 @@ object GameStateManager {
     fun push(state: State) {
         states.push(state)
     }
-
     fun set(state: State) {
         states.pop().dispose()
         states.push(state)
     }
-
     fun update(dt: Float) {
         states.peek().update(dt)
     }
-
     fun render(sb: SpriteBatch) {
         states.peek().render(sb)
     }

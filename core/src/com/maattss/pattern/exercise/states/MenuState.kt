@@ -6,7 +6,7 @@ import com.maattss.pattern.exercise.PatternExercise
 import com.maattss.pattern.exercise.sprites.Button
 
 
-object MenuState : State(GameStateManager) {
+object MenuState : State() {
     // Center aligned play button
     private val playBtn: Button = Button(PatternExercise.WIDTH/2 - 128,
             PatternExercise.HEIGHT / 2 + 128, "menu/play.png")

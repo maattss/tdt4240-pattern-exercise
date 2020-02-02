@@ -12,12 +12,12 @@ import com.maattss.pattern.exercise.sprites.Button
 import com.maattss.pattern.exercise.sprites.LeftPaddle
 import com.maattss.pattern.exercise.sprites.RightPaddle
 
-class PongState : State(GameStateManager) {
+class PongState : State() {
     private val margin: Int = 20
     private val paddleLeft: LeftPaddle = LeftPaddle(margin, margin)
     private val paddleRight: RightPaddle = RightPaddle(PatternExercise.WIDTH - paddleLeft.texture.width - margin, margin)
     private val ball: Ball = Ball()
-    private val backBtn: Button = Button(margin, PatternExercise.HEIGHT - 75, "buttons/back.png")
+    private val backBtn: Button = Button(margin, PatternExercise.HEIGHT - margin -  64, "buttons/back.png")
     private var scoreLeft: Int = 0
     private var scoreRight: Int = 0
     private var winnerStr: String = ""

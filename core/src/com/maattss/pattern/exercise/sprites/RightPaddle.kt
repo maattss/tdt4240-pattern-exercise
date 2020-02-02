@@ -14,6 +14,7 @@ class RightPaddle(x: Int, y: Int) : Paddle(x, y) {
         if (position.y > PatternExercise.HEIGHT - texture.height) {
             position.y = PatternExercise.HEIGHT - texture.height.toFloat()
         }
+
         // Using UP and DOWN arrow keys as the controller for left player
         if (Gdx.input.isKeyPressed(Input.Keys.UP)) position.y += speed
         if (Gdx.input.isKeyPressed(Input.Keys.DOWN)) position.y -= speed

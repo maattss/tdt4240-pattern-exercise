@@ -6,15 +6,15 @@ import com.badlogic.gdx.math.Vector2
 import com.maattss.pattern.exercise.PatternExercise
 import com.maattss.pattern.exercise.states.PongState
 
-
-class Ball {
-    val texture: Texture = Texture("pong/ball.png")
-    val position: Vector2 = Vector2((PatternExercise.WIDTH / 2).toFloat(),
+class Ball : Sprite() {
+    override val texture: Texture = Texture("pong/ball.png")
+    override val position: Vector2 = Vector2((PatternExercise.WIDTH / 2).toFloat(),
             (PatternExercise.HEIGHT / 2).toFloat())
+    override val bounds: Rectangle = Rectangle(position.x, position.y, 20f, 20f)
+
     private var up: Boolean = true
     private var right: Boolean = true
     private val speed: Int = 100
-    private val bounds: Rectangle = Rectangle(position.x, position.y, 20f, 20f)
 
     fun update(dt: Float, state: PongState, pl: LeftPaddle, pr: RightPaddle) {
         bounds.setPosition(position.x, position.y)
