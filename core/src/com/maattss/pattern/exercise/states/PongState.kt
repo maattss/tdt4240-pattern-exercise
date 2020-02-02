@@ -17,7 +17,7 @@ class PongState : State() {
     private val paddleLeft: LeftPaddle = LeftPaddle(margin, margin)
     private val paddleRight: RightPaddle = RightPaddle(PatternExercise.WIDTH - paddleLeft.texture.width - margin, margin)
     private val ball: Ball = Ball()
-    private val backBtn: Button = Button(margin, PatternExercise.HEIGHT - margin -  64, "buttons/back.png")
+    private val resetBtn: Button = Button(PatternExercise.WIDTH / 2 - 32, PatternExercise.HEIGHT / 3, "buttons/replay.png")
     private var scoreLeft: Int = 0
     private var scoreRight: Int = 0
     private var winnerStr: String = ""
@@ -29,13 +29,13 @@ class PongState : State() {
             java.util.logging.Logger.getLogger(PongState::class.java.name).warning("Touched, x:"
                     + Gdx.input.x.toFloat() + ", y:" + (PatternExercise.HEIGHT - Gdx.input.y.toFloat()))
             java.util.logging.Logger.getLogger(PongState::class.java.name).warning("Bounds, "
-                    + backBtn.bounds)
+                    + resetBtn.bounds)
             java.util.logging.Logger.getLogger(PongState::class.java.name).warning("Button x: "
-                    + backBtn.x + ", y: " + backBtn.y)
+                    + resetBtn.x + ", y: " + resetBtn.y)
             val touch = Rectangle(Gdx.input.x.toFloat(), PatternExercise.HEIGHT - Gdx.input.y.toFloat(), 1f, 1f)
 
-            if (touch.overlaps(backBtn.bounds)) {
-                GameStateManager.set(MenuState)
+            if (touch.overlaps(resetBtn.bounds)) {
+                GameStateManager.set(PongState())
             }
         }
     }
@@ -50,7 +50,6 @@ class PongState : State() {
     override fun render(sb: SpriteBatch) {
         sb.begin()
         Gdx.gl.glClearColor(0f, 0f, 0f, 1f)
-        sb.draw(backBtn.texture, backBtn.x, backBtn.y)
 
         if (winnerStr !== "") { // Draw scoreboard
             val fontWidth = GlyphLayout(font, "Some player won!").width
@@ -59,6 +58,7 @@ class PongState : State() {
             font.data.setScale(fontScale)
             font.color = Color.WHITE
             font.draw(sb, "Right player won!", fontX, fontY)
+            sb.draw(resetBtn.texture, resetBtn.x, resetBtn.y)
         } else { // Update paddle position
             val fontWidth = GlyphLayout(font, "$scoreLeft : $scoreRight").width
             sb.draw(paddleRight.texture, paddleRight.position.x, paddleRight.position.y)
@@ -77,7 +77,7 @@ class PongState : State() {
 
     fun incRightScore() {
         scoreRight++
-        if (scoreRight >= 21) {
+        if (scoreRight >= 1) {
             winnerStr = "Right player won!"
         }
     }
@@ -90,6 +90,6 @@ class PongState : State() {
     }
 
     override fun dispose() {
-        backBtn.dispose()
+        resetBtn.dispose()
     }
 }

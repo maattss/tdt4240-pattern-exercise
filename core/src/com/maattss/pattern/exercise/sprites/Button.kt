@@ -8,7 +8,7 @@ class Button(x: Int, y: Int, texturePath: String) : Sprite() {
     override val texture: Texture = Texture(texturePath)
     override val position: Vector2 = Vector2(x.toFloat(), y.toFloat())
     override val bounds: Rectangle = Rectangle(position.x, position.y - texture.height.toFloat(),
-            texture.width.toFloat(), texture.height.toFloat())
+            texture.width.toFloat(), position.y)
     val x: Float
         get() = position.x
 
@@ -17,5 +17,4 @@ class Button(x: Int, y: Int, texturePath: String) : Sprite() {
     fun dispose() {
         texture.dispose()
     }
-
 }

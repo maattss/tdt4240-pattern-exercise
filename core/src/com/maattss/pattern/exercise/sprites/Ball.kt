@@ -14,11 +14,11 @@ class Ball : Sprite() {
 
     private var up: Boolean = true
     private var right: Boolean = true
-    private val speed: Int = 100
+    private val speed: Int = 200
 
-    fun update(dt: Float, state: PongState, pl: LeftPaddle, pr: RightPaddle) {
+    fun update(dt: Float, state: PongState, leftPaddle: LeftPaddle, rightPaddle: RightPaddle) {
         bounds.setPosition(position.x, position.y)
-        if (bounds.overlaps(pl.bounds) || bounds.overlaps(pr.bounds)) {
+        if (bounds.overlaps(leftPaddle.bounds) || bounds.overlaps(rightPaddle.bounds)) {
             right = !right
         }
         moveY(speed * dt)
