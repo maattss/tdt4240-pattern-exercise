@@ -19,10 +19,8 @@ The state and template method patterns are used in the following way, in the del
 - **State pattern**:
   - Game states: In order to keep track of the game the state pattern is used to keep track of where the user are in the game. The ['GameStateManager'](https://github.com/maattss/tdt4240-pattern-exercise/blob/master/core/src/com/maattss/pattern/exercise/states/GameStateManager.kt) holds information about which states are active in the game, e.g. 'the user is in the menu' 
 
-TODO: Add links concrete files in the section above
-
 ## Step 4 - Theory questions
-a) For the patterns listing in Step3, which are architectural patterns, and which are design
+a) For the patterns listing in Step 3, which are architectural patterns, and which are design
 patterns? What are the relationships and differences of architectural patterns and design
 patterns?
 Architectural patterns and design patterns are similar, but architectural patterns have a different (broader) scope. They both define solutions for commonly occuring problems when developing software.
