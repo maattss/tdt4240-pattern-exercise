@@ -25,12 +25,25 @@ TODO: Add links concrete files in the section above
 a) For the patterns listing in Step3, which are architectural patterns, and which are design
 patterns? What are the relationships and differences of architectural patterns and design
 patterns?
-TODO: Write answer
+Architectural patterns and design patterns are similar, but architectural patterns have a different (broader) scope. They both define solutions for commonly occuring problems when developing software.
+
+Architectural patterns:
+- Model View Controller (MVC)
+- Pipe and filter
+
+Design patterns:
+- Observer
+- State
+- Template
+- Abstract factory
+
 b) How is the pattern you chose realized in your code? (Which class(es) works as the
 pattern you chose?)
-TODO: Write answer
+Implementation details, see above explanation.
+
 c) Is there any advantages in using this pattern in this program? (What are the
 advantages/disadvantages?)
-TODO: Write answer
+- Cleaner code
+- May be a bit more confusing? on extra class (sprite)
 
 
