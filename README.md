@@ -4,7 +4,7 @@ This repository is used as the answer for the pattern exercise in the Software A
 Explanation and dicussion around the steps in the exercise is listed below.
 
 ## Step 1 - Which progam is chosen as the base code?
-The Pong game (task 4) from the first exercise is chosen to implement patterns. 
+The Pong game (task 4) from the first exercise is chosen for implementing the patterns. Some tweak (not related to the exercise) have also been done.
 
 ## Step 2 - Implementation of the Singleton pattern
 The game introduces two game states, i.e. 'MenuState' and 'PongState'. A game will never include more than one menu and hence only one instance of the MenuState. Additionally, there is a 'GameStateManager' keeping track of the game state. Similar to MenuState there will only be one instance of GameStateManager. Therefore both the MenuState and GameStateManager implemented as Singletons. In Kotlin the Singleton pattern can easily be implemented by using an [object declaration](https://kotlinlang.org/docs/reference/object-declarations.html#object-declarations). This will ensure that the rules for the Singleton pattern si adhered to.
@@ -43,7 +43,9 @@ Implementation details, see above explanation.
 
 c) Is there any advantages in using this pattern in this program? (What are the
 advantages/disadvantages?)
+TODO: Write
+- Singleton: The singleton pattern. Ensure only one instance
 - Cleaner code
-- May be a bit more confusing? on extra class (sprite)
+- May be a bit more confusing? an extra class almost uneccesarry class 'Sprite' (sprite)
 
 
