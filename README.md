@@ -29,6 +29,7 @@ Architectural patterns and design patterns are similar, but architectural patter
 Architectural patterns:
 - Model View Controller
 - Pipe and filter
+- Entity Component System
 
 Design patterns:
 - Observer
