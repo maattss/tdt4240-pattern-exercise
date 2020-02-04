@@ -15,7 +15,7 @@ The state and template method patterns are used in the following way:
 - **Template method pattern**:
   - State: Both [MenuState](https://github.com/maattss/tdt4240-pattern-exercise/blob/master/core/src/com/maattss/pattern/exercise/states/MenuState.kt) and [PongState](https://github.com/maattss/tdt4240-pattern-exercise/blob/master/core/src/com/maattss/pattern/exercise/states/PongState.kt) are extensions of the abstract [State](https://github.com/maattss/tdt4240-pattern-exercise/blob/master/core/src/com/maattss/pattern/exercise/states/State.kt) class, overriding its abstract methods and inherting variables.
   - Sprites: [Sprite](https://github.com/maattss/tdt4240-pattern-exercise/blob/master/core/src/com/maattss/pattern/exercise/sprites/Sprite.kt) is defined as an abstract class for all drawn objects in the game and includes abstract variables shared by these classes, i.e. texture, position and bounds. All drawn object ([Button](https://github.com/maattss/tdt4240-pattern-exercise/blob/master/core/src/com/maattss/pattern/exercise/sprites/Button.kt), [RightPaddle](https://github.com/maattss/tdt4240-pattern-exercise/blob/master/core/src/com/maattss/pattern/exercise/sprites/RightPaddle.kt), [LeftPaddle](https://github.com/maattss/tdt4240-pattern-exercise/blob/master/core/src/com/maattss/pattern/exercise/sprites/LeftPaddle.kt) and [Ball](https://github.com/maattss/tdt4240-pattern-exercise/blob/master/core/src/com/maattss/pattern/exercise/sprites/Ball.kt)) extends this class.
-  - Paddles: The LeftPaddle and the RightPaddle inlcuded a lot of similiar code in exercise 1. This is now gathered in the abstract class [Paddle](https://github.com/maattss/tdt4240-pattern-exercise/blob/master/core/src/com/maattss/pattern/exercise/sprites/Paddle.kt) which is overriden by the concrete implementation of LeftPaddle and RightPaddle.
+  - Paddles: The LeftPaddle and the RightPaddle included a lot of similiar code in exercise 1. This is now gathered in the abstract class [Paddle](https://github.com/maattss/tdt4240-pattern-exercise/blob/master/core/src/com/maattss/pattern/exercise/sprites/Paddle.kt) which is overriden by the concrete implementation of LeftPaddle and RightPaddle.
 - **State pattern**:
   - Game states: In order to keep track of the game, the state pattern is used to keep track of where the user are in the game. The [GameStateManager](https://github.com/maattss/tdt4240-pattern-exercise/blob/master/core/src/com/maattss/pattern/exercise/states/GameStateManager.kt) holds information about which states are active in the game, e.g. 'the user is in the menu'.
 
@@ -29,6 +29,7 @@ Architectural patterns and design patterns are similar, but architectural patter
 Architectural patterns:
 - Model View Controller
 - Pipe and filter
+- Entity Component System
 
 Design patterns:
 - Observer
@@ -44,7 +45,7 @@ Implementation details, see above explanation.
 c) Is there any advantages in using this pattern in this program? (What are the
 advantages/disadvantages?)
 - Template method:
-  - Pros: The same code can be shared to multiple classes. Prevents "copy-paste" errors and decreases number of lines of code.
+  - Pros: The same code can be shared by multiple classes. Prevents "copy-paste" errors and decreases number of lines of code.
   - Cons: May create unnecessary many classes which may be harder to maintain and understand.
 - Singleton: 
   - Pros: Easy to ensure only one instance per class. Easily accessible global access point.
