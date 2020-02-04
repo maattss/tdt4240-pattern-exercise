@@ -45,7 +45,7 @@ Implementation details, see above explanation.
 c) Is there any advantages in using this pattern in this program? (What are the
 advantages/disadvantages?)
 - Template method:
-  - Pros: The same code can be shared to multiple classes. Prevents "copy-paste" errors and decreases number of lines of code.
+  - Pros: The same code can be shared by multiple classes. Prevents "copy-paste" errors and decreases number of lines of code.
   - Cons: May create unnecessary many classes which may be harder to maintain and understand.
 - Singleton: 
   - Pros: Easy to ensure only one instance per class. Easily accessible global access point.
