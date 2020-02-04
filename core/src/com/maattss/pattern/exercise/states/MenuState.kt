@@ -13,12 +13,6 @@ object MenuState : State() {
 
     override fun handleInput() {
         if (Gdx.input.justTouched()) {
-            java.util.logging.Logger.getLogger(PongState::class.java.name).warning("Touched, x:"
-                    + Gdx.input.x.toFloat() + ", y:" + (Gdx.input.y.toFloat()))
-            java.util.logging.Logger.getLogger(PongState::class.java.name).warning("Bounds obj, "
-                    + playBtn.bounds)
-            java.util.logging.Logger.getLogger(PongState::class.java.name).warning("Button x: "
-                    + playBtn.x + ", y: " + playBtn.y)
             if (playBtn.bounds.contains(Gdx.input.x.toFloat(), Gdx.input.y.toFloat())) {
                 GameStateManager.set(PongState())
             }
