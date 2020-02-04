@@ -8,8 +8,8 @@ import com.maattss.pattern.exercise.sprites.Button
 
 object MenuState : State() {
     // Center aligned play button
-    private val playBtn: Button = Button(PatternExercise.WIDTH / 2 - 128,
-            PatternExercise.HEIGHT / 2 + 128, "menu/play.png")
+    private val playBtn: Button = Button(PatternExercise.WIDTH / 2 - 64,
+            PatternExercise.HEIGHT / 2 + 64, "menu/play.png")
 
     override fun handleInput() {
         if (Gdx.input.justTouched()) {

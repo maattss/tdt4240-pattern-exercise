@@ -26,6 +26,7 @@ class PongState : State() {
 
     override fun handleInput() {
         if (Gdx.input.justTouched()) {
+            // TODO: Remove
             java.util.logging.Logger.getLogger(PongState::class.java.name).warning("Touched, x:"
                     + Gdx.input.x.toFloat() + ", y:" + (PatternExercise.HEIGHT - Gdx.input.y.toFloat()))
             java.util.logging.Logger.getLogger(PongState::class.java.name).warning("Bounds, "
@@ -67,7 +68,7 @@ class PongState : State() {
 
             // Draw scoreboard
             val fontX = (PatternExercise.WIDTH - fontWidth) / 2
-            val fontY = PatternExercise.HEIGHT - 50.toFloat()
+            val fontY = PatternExercise.HEIGHT - 30.toFloat()
             font.data.setScale(fontScale)
             font.color = Color.WHITE
             font.draw(sb, "$scoreLeft : $scoreRight", fontX, fontY)

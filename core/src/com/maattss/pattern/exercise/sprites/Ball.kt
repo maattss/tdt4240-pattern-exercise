@@ -13,35 +13,37 @@ class Ball : Sprite() {
     override val bounds: Rectangle = Rectangle(position.x, position.y, 20f, 20f)
 
     private var up: Boolean = true
-    private var right: Boolean = true
+    private var moveRight: Boolean = true
     private val speed: Int = 200
 
     fun update(dt: Float, state: PongState, leftPaddle: LeftPaddle, rightPaddle: RightPaddle) {
         bounds.setPosition(position.x, position.y)
-        if (bounds.overlaps(leftPaddle.bounds) || bounds.overlaps(rightPaddle.bounds)) {
-            right = !right
-        }
+        if (bounds.overlaps(leftPaddle.bounds)) moveRight = true
+        if (bounds.overlaps(rightPaddle.bounds)) moveRight = false
+
         moveY(speed * dt)
         moveX(speed * dt, state)
     }
 
     private fun moveX(speed: Float, state: PongState) {
-        if (right) {
+        if (moveRight) {
             position.x += speed
         } else {
             position.x -= speed
         }
+
         if (position.x > PatternExercise.WIDTH - texture.width/2) {
             position.x = PatternExercise.WIDTH / 2.toFloat()
             position.y = PatternExercise.HEIGHT / 2.toFloat()
-            right = false
+            moveRight = false
             up = !up
             state.incLeftScore()
         }
+
         if (position.x < 0) {
             position.x = PatternExercise.WIDTH / 2.toFloat()
             position.y = PatternExercise.HEIGHT / 2.toFloat()
-            right = true
+            moveRight = true
             up = !up
             state.incRightScore()
         }
