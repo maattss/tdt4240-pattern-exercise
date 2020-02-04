@@ -77,7 +77,7 @@ class PongState : State() {
 
     fun incRightScore() {
         scoreRight++
-        if (scoreRight >= 1) {
+        if (scoreRight >= 21) {
             winnerStr = "Right player won!"
         }
     }
