@@ -21,10 +21,7 @@ The state and template method patterns are used in the following way:
 
 ## Step 4 - Theory questions
 a) For the patterns listed in Step 3, which are architectural patterns, and which are design
-patterns? What are the relationships and differences of architectural patterns and design
-patterns?
-
-Architectural patterns and design patterns are similar, but architectural patterns have a different (broader) scope. They both define solutions for commonly occuring problems when developing software.
+patterns? 
 
 Architectural patterns:
 - Model View Controller
@@ -36,6 +33,11 @@ Design patterns:
 - State
 - Template method
 - Abstract factory
+
+What are the relationships and differences of architectural patterns and design
+patterns?
+
+Architectural patterns and design patterns are similar, but architectural patterns have a different (broader) scope. They both define solutions for commonly occuring problems when developing software.
 
 b) How is the pattern you chose realized in your code? (Which class(es) works as the
 pattern you chose?)
